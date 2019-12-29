@@ -1,0 +1,136 @@
+CSS基本语法
+    选择器:{属性1:值; 属性2:值;}
+    写的时候用 #div1  使用的时候用id = "div1"
+
+CSS样式引入方式
+    内联样式 
+        通过style属性:直接在标签内部，通过style属性实现
+            <body>
+                <div style="width: 100%; height: 100%;">
+                这是一个块儿
+                </div>
+            </body>
+    内部样式：
+        通过style标签
+            <style>
+                    div{width: 100px; height: 100px; background-color: blanchedalmond;}/* 所有的div都会被赋予这个属性 */
+                /* 如果不想确认大小，且自适应，可以使用100% ,100%是针对父级的宽度而言的*/
+            </style>
+    外部样式：
+        引入CSS文件  .css结尾的文件
+        通过link标签引入外部资源，rel属性指资源与页面的关系，href则为资源地址
+        在head标签中
+        <link rel="stylesheet" href="./Css/waibu.css">
+    外联样式：
+        导入后在标签属性中通过style属性
+
+Css颜色表示法
+    单词表示法:red,blue....
+    十六进制表示法: #ffffff, #ff0000
+    RGB表示法: rgb(255,255,255) 白色
+
+Css样式
+    颜色样式
+        background-image  背景图片
+            background-image:url(./img/xxx.jpg)
+        background-repeat  平铺方式
+            background-repeat: repeat-x x轴平铺
+            background-repeat: repeat-y y轴平铺
+            background-repeat: repeat x,y轴平铺 默认值
+            background-repeat: no-repeat 不平铺
+        background-position: 背景图位置
+            background-position: 100px 50px   右100，下50
+            background-position: right bottom    右下角
+                                center center   中间（居中）
+                                50% 50%         百分比
+        background-attachement 背景图随滚动条移动方式
+            background-attachement: scroll （默认)   背景位置是按照当前元素偏移的
+                                    fixed   背景图不动了 背景位置按照浏览器进行偏移，但是否显示，是要看它的父级在哪里，以及父级有多大
+    边框样式
+        border-style
+            solid 实现  dash 虚线 dotted点线
+        border-width
+        border-color
+        只针对一条边设置style
+            border-right-style : dash
+        只针对一条边设置color
+            border-bottom-color : red
+        只针对一条边设置width
+            border-top-width : 1px    
+    字体样式
+        font-family: "Arial" 值是可以用引号引起来的，字体类型中间有空格的时候，一定要用引号引起来
+        font-family: "Arial"，“微软雅黑"   设置多时，会根据电脑中是否有这个字体来按顺序进行读取，都没有则用电脑自带默认字体
+        衬线体： 字的拐角处是尖的
+        非衬线体： 字是平滑的
+        font-size: 16px 默认为16
+        font-weight :normal 正常 bold 加粗 100~900 粗细程度，但600~900才会有加粗效果
+        font-style : normal 正常 italic 斜体 oblique 斜体，且不带有倾斜属性的字体也可以使用
+        color : red 字体颜色
+    段落样式
+        text-decoration : underline
+                          overline 上划线
+                          line-through 删除线
+                          通过空格隔开可以添加多个
+        text-transform :  lowercase 小写             设置大小写
+                          uppercase 大写
+                          capitalize 首字母大写
+        
+        text-indent : 文本缩进
+                        首行缩进2个空格
+                            32px（默认一个文字是16px）
+                        em单位： 相对单位，一个em永远都是与字体大小相等
+                            2em
+        text-align : 文本对齐方式
+                    left 左对齐
+                    right
+                    center
+                    justify 左右对齐，两端对齐
+        line-height : 上边距+下边距+字体大小 上边距=下边距
+                        默认行高是可以根据当前字体大小变化的
+                        20px
+                        比例值：1   这个意思就是与文字大小一样
+                               2  这个是文字大小的2倍
+        letter-spacing: 字间距
+        word-spacing:  词间距，针对英文
+        word-break: break-all 过长的英文单词自动换行
+        word-wrap: break-word 过长的英文单词会另起一行来写
+
+CSS复合样式
+    符合样式是通过空格来实现的
+    1.background : red url(./img/xxx.jpg repeat center center)
+    2.broder : red solid 
+    3.border-right : 2px dash
+
+    4.Font 这个是有顺序要求的，至少要有两个值 size和family必须有
+        font:30px 宋体             顺序是不可以颠倒的
+        例子： font : bold italic  30px/100px Arial       100px这是行高
+
+CSS选择器
+    1.ID 选择器
+        #div{}
+        使用的时候，在对应便签里面使用就好
+        注意： 1.一个ID只能使用一次
+              2.命名：不以数字开头， 驼峰式：nameGet(小驼峰) NameGet(大驼峰)
+                                  短线写法：name-get
+                                  下划线写法:name_get
+    2.Class选择器
+       在style中： .name{}    使用的时候class = "name1 name2"   快捷输入方法：div.name1
+        可以使用多次
+        当重复使用的样式，有重复的时候，会按照CSS中顺序决定
+        只针对某个特定标签的类
+        p.box{}    使用: <p class = "box">husahdsad</p>可以生效   但是<div class = "box">husahdsad</div> 就不生效了
+    
+    3.标签选择器
+        使用场景： 去掉某些标签的默认样式， 或者层次选择器 
+            ul{}
+    
+    4.群组选择器
+        .box,#div1,div{background:red}
+        通过逗号的方式，给多个选择器添加样式
+    5.通配选择器 *{}  所有标签都添加样式
+        为了去掉所有标签的样式会用到
+    
+    
+
+                            
+            

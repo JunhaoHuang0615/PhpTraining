@@ -1,0 +1,46 @@
+<!-- 告诉浏览器这是一个html代码 -->
+<!DOCTYPE html>     
+
+<!-- html是最外层的标签，包含所有的代码 -->
+<html lang="en"> <!-- en表示是一个英文网站，咱中文的就是zh-CN -->
+
+<!-- head就是网页地址栏那一块的信息，包含了 meta，title标签-->
+<head>
+    <!-- 元信息 ，网页的辅助信息-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- 这个title是选项卡的名字 -->
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 网站的内容 -->
+    <table> <!-- 表格头 -->
+        <caption>天气预报</caption> <!-- 表格标题 -->
+        <thead> <!-- 语义化标签 这代表的是表格头部的一行，没什么实际效果，只是利于开发 -->
+            <tr><!-- 代表行 -->
+                <th>日期</th> <!-- 每一行的内容 -->
+                <th>天气情况</th>
+                <th>出行情况</th>
+            </tr>
+        </thead>
+        <tbody> <!-- 语义化标签 这代表的是表格的身体 -->
+            <tr>
+                <th>2018年1月1日</th>
+                <th>晴天</th>
+                <th>爱干啥干啥</th>
+            </tr>
+            <tr>
+                <th>2019年1月1日</th>
+                <th>阴天</th>
+                <th>家里呆着</th>
+            </tr>
+        </tbody>
+        <tfoot> <!-- 语义化标签 这代表的是表格的最后一行-->
+
+        </tfoot>
+    </table>
+    
+</body>
+</html>

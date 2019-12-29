@@ -1,0 +1,20 @@
+shift+alt+下 ，向下复制
+alt+上下，把一整行上移下移
+
+按住alt键实现多光标，同时改一个变量名称等
+
+    anme    
+    name   anme 
+    anme
+    saddsadas
+    d
+    anme
+    第二次单机左键，则会取消选择
+
+选择相同元素的下一个 先选择要选择的元素，Ctrl+D选择它的下一个元素，选择完后再按alt，绝了~~~~~~~
+
+搜索功能： 可以直接搜索某一个文件的内容
+
+注释： ctrl+shift+a   (Mac option+shift+a)
+
+html语义化： 根据内容和功能，采用对应的标签

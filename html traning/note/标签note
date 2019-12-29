@@ -1,0 +1,176 @@
+标题标签：<h> 双标签
+    一级标题<h1></h1> 最重要的标题，在一个网页中只能出现一次
+    二级标题<h2></h2>
+    ...
+    六级标题<h6></h6> 六级已经很少用了
+
+段落标签:<P> 双标签
+    一个段落用一个标签<p></p>
+
+文本修饰标签
+    strong:加粗标签 
+        <strong> </strong>
+    em: 斜体标签
+        <em></em>
+    上标文本，下标文本
+        下标<sub></sub> 
+        上标<sup></sup> 平方立方的上标
+    删除线
+        <del></del>
+    下划线,插入文本
+        <ins></ins>
+    
+    图片标签 单标签
+        <img src="图片地址" alt="当图片无法加载时显示的文字" title="鼠标移动到这个标签上的提示信息">
+        width:图片宽度
+        height:图片高度
+        src:文件地址：./xxx.jpg 相对路径，表示当前网页与图片位置一样
+                    ../xx/xx/xxx.jpg 相对路径，去上一级先，然后在path到文件夹中
+                    xxx/xxx/xxx/xxx/xxx.jpg 绝对路径
+    
+    超链接 <a> 双标签
+        href:链接地址  可以为网址，可以为路径
+            给图片添加超链接
+                <a href="www.google.com"><img src="显示图片的地址" alt="图片失效时的文字"></a>
+        target: 可以改变链接打开的方式 _self:在当前选项卡中打开  _blank:在新选项卡中打开
+    
+    <base>单标签 这个标签通常是放在头部，为了设置整体的超链接打开方式， _blank新窗口 _self当前窗口
+    
+    跳转锚点标签: 
+        方法一：通过a标签以及id来实现 #号加id
+            <a href="#123456"> html位置</a>
+
+            <h2 id="123456"> Html </h2>
+            这样一点击 “html位置” 就会超链接到当前页面的h2标签位置
+        
+        方法二： #号以及name属性
+            <a href="#123html"> html位置 </a>
+
+            <a name = "123html"></a> 这个a标签只代表位置，没有任何内容
+            <h2> Html </h2>
+    
+    特殊符号的显示：
+        &lt; 左尖括号
+        &gt; 右尖括号
+        &nbsp; 空格
+        &yen; 人民币符号
+        &deg; 摄氏度
+        &amp; &符号
+        &copy; 版权符号©
+        @reg; 注册商标®️
+
+    无序列表<ul> <li> 组合使用，中间不可有其他标签
+        1.ul和li之间要符合嵌套规范 中间不可有其他标签
+        <ul type = "列表的标识符">   disc （默认的)实心圆 circle 空心圆 square 实心方块  但一般都用css控制
+            <li><a>第一项</a></li>
+            <li>第二项</li>
+        </ul>
+        2.li内部可以有其他标签
+    
+    有序列表 <ol><li> 排行榜等，但其实一般情况下，无序列表也可以代替有序列表
+        1.ol和li之间要符合嵌套规范 中间不可有其他标签
+        2.前面会有1,2,3标号，但一般用css控制
+        3.ol的type属性  a：字母， i：罗马i,ii,iii
+
+    定义列表 <dl>列表头 <dt>定义专业术语或者名词 <dd>对名词进行解释和描述
+        <dl>
+            <dt> 缘翼 </dt>
+            <dd> 他是一个智障</dd>
+        </dl>
+
+    嵌套列表 列表之间可以互相嵌套，形成多层级列表
+        <ul>
+            <li>
+                海南省
+                <ul>
+                    <li> 海口市 </li>
+                    <li> 三亚市 </li>
+                </ul>
+            </li>
+
+            <li>
+            上海市
+            </li>
+        </ul>
+    表格标签
+        <table border=“1” cellspacing = "30" cellpadding = "30"> <!-- 表格头 --> 
+        <caption>天气预报</caption> <!-- 表格标题 -->
+            <thead> <!-- 语义化标签 这代表的是表格头部的一行，没什么实际效果，只是利于开发 -->
+                <tr align = "right"><!-- 代表行 -->
+                    <th colspan = "2" >日期</th> <!-- 代表行里面的第一列的元素 -->
+                    <th >天气情况</th>
+                    <th>出行情况</th>
+                </tr>
+            </thead>
+            <tbody> <!-- 语义化标签 这代表的是表格的身体 -->
+                <tr>
+                    <th>2018年1月1日</th>
+                    <th>星期一</th>
+                    <th>晴天</th>
+                    <th>爱干啥干啥</th>
+                </tr>
+                <tr>
+                    <th>2019年1月1日</th>
+                    <th>星期天</th>
+                    <th>阴天</th>
+                    <th>家里呆着</th>
+                </tr>
+            </tbody>
+            <tfoot> <!-- 语义化标签 这代表的是表格的最后一行-->
+
+            </tfoot>
+        </table>
+
+        td和th，th是表格头，是用粗体显示的
+
+        表格属性
+            border 表示表格边框, border=“1”
+            cellpadding表示个内的空间，上下左右间距 cellpadding = "30"
+            cellspacing: 单元格之间的距离 cellspacing = "30"
+            rowspan : 合并行 
+            colspan ：合并列 colspan = "2" 某一行的某两列合并成一个，对应下面的两列
+            align：左右对齐方式 值： left center right
+            valign:上下对其方式 值： top middle bottom
+
+    表单标签 复选框，checkbox
+        form  input
+         input单标签的type属性决定了样式
+        <form action="提交的地址">
+                <h2>输入框：</h2>
+                <input type="text" placeholder="enter your username">
+                <h2>密码框</h2>
+                <input type="password" placeholder="enter your password">
+                <h2>复选框</h2>
+                <input type="checkbox" checked> 人
+                <input type="checkbox"> 猫
+                <input type="checkbox"> 狗
+                <h2>单选框</h2>
+                <input type="radio" name="gender" checked> 男 <!-- 有了name，则就变成了一组，name就只能选一个了 -->
+                <input type="radio" name="gender"> 女
+                <input type="radio" name="gender" disabled> 自定义
+                <h2>上传文件</h2>
+                <input type="file" multiple>   multiple这个属性可以让我们多选文件而不是只有一个
+                <h2>submit</h2> <!-- 执行action，提交到action地址 -->
+                <input type="submit" name="" id="">
+                <h2>重置</h2> <!-- 重置整个form表单 -->
+                <input type="reset" name="" id="">
+        </form>
+
+        表单的其他标签
+            多行文本框<textarea cols = "20" rows = "30">
+            下拉菜单<select> <option> 
+                <select name="" id="">
+                    <option value="" selected disabled>请选择</option> selected表示默认选项 disabled则是下拉菜单里面不可被选择的选项
+                    <option value="">缘</option>
+                    <option value="">翼</option>   
+                    <option value="">の</option>
+                </select>
+            辅助表单 <label>
+                为了点击字也可以选择到，我们给字添加label标签
+                <input type="radio" name="gender" checked id = "man"> <label for = "man"> 男</label>
+                <input type="radio" name="gender" id = "women"> <label for = "women"> 女 </label>
+                <input type="radio" name="gender" disabled> 自定义
+
+
+
+

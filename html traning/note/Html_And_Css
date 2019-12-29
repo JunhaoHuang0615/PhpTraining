@@ -1,0 +1,17 @@
+Html是结果
+Css 是样式 <style 标签>
+Js: 与用户的交互行为 <script标签>
+
+HTML:
+    超文本： 除了文字之外，还有图片，音乐，视频等
+    标记(标签)：<单词> 
+    语言：编程语言
+
+标记：(写单词，按TAb则会自动转换成单标签或者双标签)
+    单标签：<header>
+    双标签：<script> </script>
+    标签的属性：来修饰标签，是标签的功能
+            如： <hearder title = "hello"> </header> 这个title就是hearder标签的属性，鼠标移到上面会显示的东西
+
+
+Html的初始代码： VS中输入!,再按Tab键, 为了实现规范
