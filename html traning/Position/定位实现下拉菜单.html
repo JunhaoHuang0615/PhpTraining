@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{margin: 0px; padding: 0px;}
+        ul{list-style: none;}
+        #menu{width: 100px; height: 30px; margin: 20px auto; border: 1px black solid; position: relative;}
+        #menu ul{width:100px; border: 1px black solid; position: absolute; left: -1px; top: 30px;
+                background: white; display: none;} /* 这里的ulabsolute了就脱离了文档流 */
+        #menu:hover ul{display: block;}
+        #menu ul li:hover{ background: grey;}
+        p{text-align: center;}
+    </style>
+</head>
+<body>
+    <div id="menu"><span>卖家中心</span>
+        <ul> <!-- 这里输入 li{list$}*4 可以瞬间出现下面的li -->
+            <li>list 1</li>
+            <li>list 2</li>
+            <li>list 3</li>
+            <li>list 4</li>
+        </ul>
+    </div>
+    <p>test</p>
+
+</body>
+</html>

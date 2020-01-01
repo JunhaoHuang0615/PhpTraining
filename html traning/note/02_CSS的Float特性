@@ -1,0 +1,39 @@
+float
+    是CSS的样式，加了float样式以后，会脱离文档流，沿着父级的容器位置以及范围内，靠左或者靠右排列
+    且注意，float的元素，可能会叠加在正常文档流的上面
+取值：
+    left
+    right
+    none
+
+float的块，是不会将父级撑开的，它的高度不会影响父级高度
+同一个父级下，如果之前已经有了相同浮动方向的元素（如都是向左排列），则会挨着浮动的元素排列
+
+注意点：
+    float的元素只会影响后面的元素
+        即： 如果三个div排于body中，第一个div与第三个div是文本流排列，没有浮动，第二个divfloat了
+            那么它会压在第三个div的上面，第一个div的位置是不会被float的元素遮住的
+    内容默认提升半层：即与文字同层，如果在第三个div上加入文字，第二个div不会遮住文字，且文字会在float的div周围显示
+    宽度根据内容决定
+    换行排列：父容器的宽度不够时，会自动换行
+    主要用于块，内联也可以使用
+
+同一级下，如果想让一个div不受前一个有float样式的div影响，那么需要加入clear:both样式（一般是连边）
+
+嵌套时的影响：
+    <style>
+        #box1{width: 400px; border: 1px black solid; }
+        #box2{width: 200px; height: 200px; background: red; float: left;}
+    </style>
+
+    <div id="box1">
+        <div id="box2"></div> <!-- 如果将内嵌的div float 了， 那么父容器就不会被撑开，且不与box2处于同一层级了 -->
+    </div>
+解决方案： 父级也float，到同一个层级上，但是这样子会对后面的元素影响
+        父级加入overflow:hidden，这样子float会把父级div撑开
+        父级加入diplay:inline-block
+        父级中加入空标签，且这个空标签含有clear:both 样式
+        推荐： 使用after伪类，注意，clear只会操作块标签，对于内联标签无效
+            写一个类.clear{content:"";clear:both;display=block}
+            然后再父级中加入那个类
+    

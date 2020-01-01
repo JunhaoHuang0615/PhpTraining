@@ -1,0 +1,435 @@
+CSS基本语法
+    选择器:{属性1:值; 属性2:值;}
+    写的时候用 #div1  使用的时候用id = "div1"
+
+CSS样式引入方式
+    内联样式 
+        通过style属性:直接在标签内部，通过style属性实现
+            <body>
+                <div style="width: 100%; height: 100%;">
+                这是一个块儿
+                </div>
+            </body>
+    内部样式：
+        通过style标签
+            <style>
+                    div{width: 100px; height: 100px; background-color: blanchedalmond;}/* 所有的div都会被赋予这个属性 */
+                /* 如果不想确认大小，且自适应，可以使用100% ,100%是针对父级的宽度而言的*/
+            </style>
+    外部样式：
+        引入CSS文件  .css结尾的文件
+        通过link标签引入外部资源，rel属性指资源与页面的关系，href则为资源地址
+        在head标签中
+        <link rel="stylesheet" href="./Css/waibu.css">
+    外联样式：
+        导入后在标签属性中通过style属性
+
+Css颜色表示法
+    单词表示法:red,blue....
+    十六进制表示法: #ffffff, #ff0000
+    RGB表示法: rgb(255,255,255) 白色
+
+Css样式
+    颜色样式
+        background-image  背景图片
+            background-image:url(./img/xxx.jpg)
+        background-repeat  平铺方式
+            background-repeat: repeat-x x轴平铺
+            background-repeat: repeat-y y轴平铺
+            background-repeat: repeat x,y轴平铺 默认值
+            background-repeat: no-repeat 不平铺
+        background-position: 背景图位置
+            background-position: 100px 50px   右100，下50
+            background-position: right bottom    右下角
+                                center center   中间（居中）
+                                50% 50%         百分比
+        background-attachement 背景图随滚动条移动方式
+            background-attachement: scroll （默认)   背景位置是按照当前元素偏移的
+                                    fixed   背景图不动了 背景位置按照浏览器进行偏移，但是否显示，是要看它的父级在哪里，以及父级有多大
+    边框样式
+        border-style
+            solid 实现  dash 虚线 dotted点线
+        border-width
+        border-color
+        只针对一条边设置style
+            border-right-style : dash
+        只针对一条边设置color
+            border-bottom-color : red
+        只针对一条边设置width
+            border-top-width : 1px    
+    字体样式
+        font-family: "Arial" 值是可以用引号引起来的，字体类型中间有空格的时候，一定要用引号引起来
+        font-family: "Arial"，“微软雅黑"   设置多时，会根据电脑中是否有这个字体来按顺序进行读取，都没有则用电脑自带默认字体
+        衬线体： 字的拐角处是尖的
+        非衬线体： 字是平滑的
+        font-size: 16px 默认为16
+        font-weight :normal 正常 bold 加粗 100~900 粗细程度，但600~900才会有加粗效果
+        font-style : normal 正常 italic 斜体 oblique 斜体，且不带有倾斜属性的字体也可以使用
+        color : red 字体颜色
+    段落样式
+        text-decoration : underline
+                          overline 上划线
+                          line-through 删除线
+                          通过空格隔开可以添加多个
+        text-transform :  lowercase 小写             设置大小写
+                          uppercase 大写
+                          capitalize 首字母大写
+        
+        text-indent : 文本缩进
+                        首行缩进2个空格
+                            32px（默认一个文字是16px）
+                        em单位： 相对单位，一个em永远都是与字体大小相等
+                            2em
+        text-align : 文本对齐方式
+                    left 左对齐
+                    right
+                    center
+                    justify 左右对齐，两端对齐
+        line-height : 上边距+下边距+字体大小 上边距=下边距
+                        默认行高是可以根据当前字体大小变化的
+                        20px
+                        比例值：1   这个意思就是与文字大小一样
+                               2  这个是文字大小的2倍
+        letter-spacing: 字间距
+        word-spacing:  词间距，针对英文
+        word-break: break-all 过长的英文单词自动换行
+        word-wrap: break-word 过长的英文单词会另起一行来写
+
+CSS复合样式
+    符合样式是通过空格来实现的
+    1.background : red url(./img/xxx.jpg repeat center center)
+    2.broder : red solid 
+    3.border-right : 2px dash
+
+    4.Font 这个是有顺序要求的，至少要有两个值 size和family必须有
+        font:30px 宋体             顺序是不可以颠倒的
+        例子： font : bold italic  30px/100px Arial       100px这是行高
+
+CSS选择器
+    1.ID 选择器
+        #div{}
+        使用的时候，在对应便签里面使用就好
+        注意： 1.一个ID只能使用一次
+              2.命名：不以数字开头， 驼峰式：nameGet(小驼峰) NameGet(大驼峰)
+                                  短线写法：name-get
+                                  下划线写法:name_get
+    2.Class选择器
+       在style中： .name{}    使用的时候class = "name1 name2"   快捷输入方法：div.name1
+        可以使用多次
+        当重复使用的样式，有重复的时候，会按照CSS中顺序决定
+        只针对某个特定标签的类
+        p.box{}    使用: <p class = "box">husahdsad</p>可以生效   但是<div class = "box">husahdsad</div> 就不生效了
+    
+    3.标签选择器
+        使用场景： 去掉某些标签的默认样式， 或者层次选择器 
+            ul{}
+    
+    4.群组选择器
+        .box,#div1,div{background:red}
+        通过逗号的方式，给多个选择器添加样式
+    5.通配选择器 *{}  所有标签都添加样式
+        为了去掉所有标签的样式会用到
+    
+    6.层次选择器
+        后代 M N 孩子，以及孩子的孩子的N标签都会有的属性
+             /* li{border: red 1px solid;} 这样子就会使得所有的li都有这个属性，然而如果指向让ul下的li有这个属性的话 */
+                ul li{border: red 1px solid;} /* 这样子就会使得所有的li都有这个属性，然而如果指向让ul下的li有这个属性的话 */
+                #list li{} 这种写法就只有id=list的标签下的li会有属性
+        
+        父子 M>N 孩子的孩子是没有的
+
+        兄弟 M~N 在M标签之后（之前的标签不算)的N标签都会有的样式
+
+        相邻 M+N 与M向下相邻的一个N标签   
+
+    7.属性选择器
+        带有某个属性的标签才会有的样式
+        div[class]{background: red}  带有class属性的标签才会有
+        div[class = box]{background: red}   class属性值为box的都会有的样式
+        div[class *= box]{background : red}  只要class属性值中含有box的字符的标签都会有样式
+        div[class ^= box]  以box开头
+        div[class $= box]  以box结尾
+        div[class][id] 必须同时具有class 和id 这两个属性
+    
+    8.伪类选择器
+        用于向某些元素添加特殊的效果，一般用于初始样式添加不上的时候，用伪类
+        :link       访问前的样式    （只能添加给a标签)
+        :visited    访问后的样式
+        :hover      鼠标移入时的样式
+            .test{background: blue; width: 300px; height: 300px;}
+            .test:hover{background: red ; width: 500px; height: 500px;}
+            /* 鼠标移入的时候会发生的效果 */
+        :active     鼠标按下时的样式
+        
+        例子：
+            .linkcss:link{color: blue;}
+            .linkcss:visited{color:blueviolet;}    只有通过清除缓存才可以还原为之前的状态了
+            .linkcss:hover{color:red;}
+            .linkcss:active{color: green;}
+
+            <a class = "linkcss" href="">这是一个链接</a>
+        注： 一本情况下，对于标签a只设置
+            a{color:gray} a:hover{color:red}
+
+        :after  对所有的这类标签的后面添加的内容
+        :before     对所有的这类标签的前面添加的内容
+        例子：
+            div:after{content: " konni qi wa" ;color: red}
+
+            <div> 缘翼 </div> 这个文字后面会有konni qi wa
+
+        针对表单元素的伪类  :checked  :disabled  :focus
+            <style>
+                :disabled{width: 100px; height: 100px;}
+                :checked{width: 150px; height: 150px;} /* 只针对，含有这两个属性的标签使用 */
+                :focus{background: grey;}  /* 当输入框被激活的时候显示的样式，即焦点在输入框上时 */
+            </style>
+
+        结构伪类选择器：:nth-of-type() :nth-of-child() 
+            :nth-of-type :nth-of-child()
+                li:nth-of-type(3){background: red;} /* li作为子集的时候的第三个有颜色 */
+                li:nth-of-type(2n){background: red;} /* li作为子集的的偶数行的样式 */
+                li:nth-of-type(2n+1){background: red;} /* li作为子集的的奇数行的样式 */
+                            隔两行：3n+1
+                child 和 type的区别，child严格要求是当标签作为子集的时候，必须排位在第三个
+                    li:nth-of-type(3){background: red;}
+                     <ul>
+                        <li></li>
+                        <li></li>
+                        <div></div>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                    </ul>
+                    这里的第三个li会是红色
+                    li:nth-of-child(3){background: red;}
+                    <ul>
+                        <li></li>
+                        <li></li>
+                        <div></div>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                    </ul>
+                    这里的第三个是div，所以没有然和一个是红色
+
+            :first-of-type    第一个
+            :last-of-type     最后一个
+            :only-of-type     只有一个的时候
+
+CSS继承
+    CSS中文字的样式会被继承，默认情况布局的样式不可以
+            <style>
+                div{background: red; width: 300px; height: 300px; font-size: 30px; border: 1px solid;color:red}
+            </style>
+          
+            <div>
+                <p>这是一个段落</p> 这里的p标签会继承div里font-size的样式
+            </div>
+        
+        若想继承父类布局的样式
+            <style>
+                div{width: 300px; height: 300px; font-size: 30px; border: 1px solid;color:red}
+                p{border:inherit}  继承父类的border样式
+            </style>
+
+CSS优先级
+    后面的优先级高于前面的优先级
+    内部，外部，后引入的优先级高，主要是看外部的CSS在哪一行引入的
+    style > id > class > 标签本身 > * > inherit
+            #ele{}> .eles{} > div{} > *{} 
+    style权重 1000， id 100  class 10  标签(tag) 1
+    
+    提升优先级 !important   继承优先级无法提升
+        #elem{ color:red !important;}
+        <div id = "elem" style = "color:blue;">这是一个块儿</div>  字体会显示id的颜色
+    
+    div.box 和 .box 的优先级高
+
+    层次优先级
+        1.权重比较
+            ul li .box p input{}  1+1+10+1+1
+            .hello span #elem{}  10+1+100    下面这个优先级高
+        
+        2.约分比较
+            ul li .box p input{}  -> li p input{}  1+1+1
+            .hello span #elem{}  ->  #elem{} 100    下面这个优先级高
+            如果一个约分约没了，那么有富余的那个优先级高
+
+CSS盒子模型
+
+    组成: content -> padding -> border -> margin
+           物品       填充物      包装盒      盒子与盒子之间的距离      
+        
+        content: 内容区域，由width 和 height组成
+        padding: 内边距
+            只写一个值
+            写两个值： 上下，左右
+            写四个值 上，右，下，左
+            padding-top
+            padding-bottom
+            padding-right
+            padding-left
+        border: 边框
+            border-top
+            border-bottom
+            border-right
+            border-left
+        注意：background 颜色，图片 是会填充border,padding,content区域的，但是是可以被覆盖
+             文字只会在content中出现
+
+        margin :外边距
+            只写一个值
+            写两个值： 上下，左右
+            写四个值 上，右，下，左
+            margin-top
+            margin-bottom
+            margin-right
+            margin-left
+        注意：margin的值可以为负数，那么负数部分会被其他的盒子覆盖上去
+
+    box-sizing: 盒尺存，改变盒子的显示形态
+        如果为默认值：content-box 那么width和height这两个值只会影响content部分
+            border-box 那么width和height这两个值会影响border,content,padding
+            #box{box-sizing: border-box}
+        可以避免一些计算
+        解决百分比的问题
+    
+    margin问题
+            1.上下margin同时存在的时候，是会叠加的，谁的值大按谁算
+                如盒子1的下边距为60px，盒子2的上边距为80px，那么两个盒子的边距为80px
+            2.但是左右的margin，是两个盒子的margin相加，注意左右排列是float
+            3.margin-top会出现传递问题，在嵌套的结构中
+                   #box1{width: 200px; height: 200px; background: red;}
+                   #box2{width: 100px; height: 100px; background: blue;margin: 100px;}
+                    <div id="box1">
+                        <div id="box2"></div>
+                    </div>
+                    这个时候会导致整个div在上面有100px的外边距
+                解决方法:
+                    1.给外面的盒子加边框
+                    2.给外面的盒子加padding
+                    3.BFC规范
+    
+    margin的自适应
+       margin-left: auto  左边自适应
+       margin-right: auto 右边自适应
+       margin-left: auto; margin-right: auto; 居中 或者 margin: 0 auto
+    
+    div嵌套的时候，宽度是与父亲相同的
+
+Overflow 溢出隐藏样式
+    hidden:内容超出content范围则隐藏起来
+    scroll: 则有滚动条
+    auto:内容多的时候才有滚动条，内容少的时候是不会显示的
+    针对某个轴设置
+        Overflow-x:
+        Overflow-y: 
+    Overflow:hidden 可以解决父级传递的marigin问题
+
+    给单行溢出文字添加省略号：
+     {white-space: nowrap; Overflow:hidden; text-Overflow: ellipsis} 文字变成：hduysahduyas...
+ 
+
+透明度与手势
+    opacity:0为不显示，1为100，0.5半透明    
+        占空间，子内容也会透明
+    
+    在设置颜色的时候也可以设置透明度
+        background: rgba(255,255,255,0.5)
+
+    鼠标接触到标签时的手势：
+        cursor: default 箭头 pointer 手指  move  移动的十字架
+            若要自定义，则要图片，图片格式必须是 .cur 或者 .ico
+            cursor: url(图片路径),auto;
+
+最大，最小宽高
+    min-width, min-height, max-width, max-height
+        min-height: 高度最小为某个值，当内容所占高达大于这个值的时候，会自适应
+        max-height: 当内容未达到设定高度时，会自适应，达到高度以后，继续增加内容则会overflow
+    百分比单位：
+        以父容器宽高为100%
+
+    一个容器适应屏幕高度就靠这个特性，注意，是百分比高度与爷爷无关
+
+CSS默认样式
+    无默认样式:div span
+    body {margin:8px}
+    h1{margin: 21.44px, 0}
+    p{margin:16,0}
+    ul{margin: 16,0; padding:0 0 0 40}
+    li{list-style: disc}
+    a{cursor: pointed; text-decoration: underline}
+
+    初始化样式：
+        *{margin:0 
+          padding:0
+        }
+        ul{list-style:none}
+        a{text-decoration :none ; color: blue}
+        a:hover{text-decoration : underline; color: blue..}
+        img{display:block}  原因是，img默认是inline的，他们的对齐方式是按照文字的基线对齐的，而不是文字的底线
+            其他解决方案：改变对齐方案： vertical-align: bottom
+
+CSS的position样式
+    默认： static 无定位
+    relative 相对定位
+        仅加这个值，没有给left，right，top，bottom样式的时候是没有效果的
+        不会使元素脱离文本流，即不管移到哪里，实际上站的空间还是在原来的位置
+    absolute: 绝对定位，会使元素脱离文档流
+              可以让内联标签支持宽高
+              可以让块的宽高由内容决定
+    fixed: 完全脱离文档流，只针对整个html窗口，不管是否嵌套
+
+    stickcy： 吸附定位 这个是在正常情况下的时候，不会有任何变化，但是当浏览器窗口滚动条接触到定义的left，top位置时，就会吸附，跟着滚动条一起移动
+                适合做长表格，固定表头
+
+    left: 100px元素的左边空出100px， 在relative模式下时：是相对于自身块的左上角为0，0点进行偏移的
+                                  在absolute模式下的时候:
+                                    在自己的父级，没有定位的时候，
+                                        如absolute,relative,fixed，那么他就会去按照祖先元素有定义position属性的块的左上角为0，0，如果都没有则会按照html的位置
+                                    如果父级有定位信息，则以父级的左上角为0，0
+    z-index  这个就是层级关系了，覆盖关系可以通过这个实现    
+            嵌套时:子集的层级与其父级的兄弟集的层级比较时，要看父级的层级是什么
+
+    利用position让子元素在父元素中居中
+     父级：position: relative  子集： position: absolute ;left:50% ;top 50%  ; margin: -width/2 0 0 -heught/2
+
+    利用position制作列表的前面的标识符：
+        li: position relative
+        li:before {  content: ""; display: block; width:3px; height:3px; background: red; 
+                    left:8px; top:8px; position: absolute ; }
+雪地地图：                
+    为了节省请求次数，很多图标可以放在一个图片上，一行一个
+        作为背景图片载入：{background: url(./img/xxx.png) no-repeat left 图标大概在图片的哪个位置}
+                                                                （这里的left表示图标是靠左边放置的还是右边放置的)
+        注意：这种多个图表融合的图片称为雪地图片， png格式，一行只能有一个，且图标要么靠左left， 要么靠右right，根据网页需求而定
+
+CSS圆角：
+    border-radius : 5px 
+        如果正好是width的一半，会变成正圆  50%
+                    10px 20px  表示两个对角
+                    10px 20px 30px 40px 左上，右上，右下，左下
+                椭圆相切： 20px/40px
+                    20px/40px 30px/20px 表示两个对角
+    例子： 半圆：
+        #box{width: 300px; height: 150px background:red; border-radius: 150px 150px 0 0}
+            注意，内容是不会影响的
+
+
+    
+                   
+
+        
+
+        
+        
+
+        
+        
+
+    
+    
+
+                            
+            

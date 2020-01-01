@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{margin: 0px; padding: 0px;}
+        ul{list-style: none;}
+        img{display: block;}
+        a{text-decoration: none; color: #666;}
+        a:hover{text-decoration: underline; color:blue;}
+        h1,h2,h3{font-size: 16px;}
+
+        .l{float: left;}
+        .r{float: right;}
+        .clear:after{content: ""; display: block; clear: both;}
+        #main{width: 366px; margin: 20px auto;}
+        #main .title{height:23px; line-height: 23px; font-size: 12px; font-weight: bold; 
+                     padding-left: 30px;
+                     background: url(./img/上面的图片.png) no-repeat 4px 6px,url(./img/下面的图片.png) repeat-x;
+                     }
+                     /* 多个背景图，前面的背景图在前面， 4，6是图片的position */
+        #main ul{overflow: hidden;}
+        #main li{margin-bottom: 22px;}
+        #main .imgdiv{width: 99px; border: 1px solid #c8c4d3;}
+        #main .imgdiv img{margin: 2px;}
+        #main .content{width: 240px;}
+        
+    
+    </style>
+</head>
+<body>
+    <div id="main">
+        <h2 class="title">This is the news title</h2>
+        <ul>
+            <li class="clear">
+                <div class="l imgdiv">
+                    <a href="#">
+                        <img src="" alt="">
+                    </a>
+                </div>
+                <div>
+                    <h2><a href="#">This is subtitle of the news</a></h2>
+                    <p> this is content
+                        this is content
+                        this is content
+                        <a href="#">Expand</a>
+                    </p>
+                </div>
+            </li>
+            <li class="clear">
+                <div class="l imgdiv">
+                    <a href="#">
+                        <img src="" alt="">
+                    </a>
+                </div>
+                <div>
+                    <h2><a href="#">This is subtitle of the news</a></h2>
+                    <p> this is content
+                        this is content
+                        this is content
+                        <a href="#">Expand</a>
+                    </p>
+                </div>
+            </li>
+            <li class="clear">
+                <div class="l imgdiv">
+                    <a href="#">
+                        <img src="" alt="">
+                    </a>
+                </div>
+                <div>
+                    <h2><a href="#">This is subtitle of the news</a></h2>
+                    <p> this is content
+                        this is content
+                        this is content
+                        <a href="#">Expand</a>
+                    </p>
+                </div>
+            </li>
+
+        </ul>
+
+    </div>
+    
+</body>
+</html>

@@ -1,0 +1,22 @@
+标签tag 分类：
+    block: div,p,ul,li,h1
+        1.独占一行，不允许第二个块跑到他的右边
+        2.支持css中的所有样式
+        3.无宽度是与父容器（父级标签）相同
+        4.所占区域是矩形
+    inline: span,img,a,em,strong
+        1.按在一起的
+        2.有些样式不支持，如宽高，marign，padding的上下方向不支持
+        3.宽度由内容决定
+        4.所占区域不一定是矩形
+        5.如果换行写内联标签，两个内联标签之间会有空隙<span>123</span><span>456</span> （这样写就无空隙）
+        img例外，这个支持宽高，因为它还是替换元素
+    inline-block: input, select
+        1.具备内联和块的特性，既支持宽高，又像内联可以并排
+
+标签的类型，可以通过CSS的display属性来改变类别
+    span{display:block;width:100px;height:100px}  那么span标签就支持宽高了
+    display还有一个值：none   这个就可以使得这个标签不显示
+    display:none 是不占空间的了
+    visibility: hidden 不显示了，但是还占空间
+
