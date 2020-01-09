@@ -1,0 +1,108 @@
+表单标签 复选框，checkbox
+        form  input
+         input单标签的type属性决定了样式
+        <form action="提交的地址">
+                <h2>输入框：</h2>
+                <input type="text" placeholder="enter your username">
+                <h2>密码框</h2>
+                <input type="password" placeholder="enter your password">
+                <h2>复选框</h2>
+                <input type="checkbox" checked> 人
+                <input type="checkbox"> 猫
+                <input type="checkbox"> 狗
+                <h2>单选框</h2>
+                <input type="radio" name="gender" checked> 男 <!-- 有了name，则就变成了一组，name就只能选一个了 -->
+                <input type="radio" name="gender"> 女
+                <input type="radio" name="gender" disabled> 自定义
+                <h2>上传文件</h2>
+                <input type="file" multiple>   multiple这个属性可以让我们多选文件而不是只有一个
+                <h2>submit</h2> <!-- 执行action，提交到action地址 -->
+                <input type="submit" name="" id="">
+                <h2>重置</h2> <!-- 重置整个form表单 -->
+                <input type="reset" name="" id="">
+        </form>
+
+        表单的其他标签
+            多行文本框<textarea cols = "20" rows = "30">
+            下拉菜单<select> <option> 
+                <select name="" id="">
+                    <option value="" selected disabled>请选择</option> selected表示默认选项 disabled则是下拉菜单里面不可被选择的选项
+                    <option value="">缘</option>
+                    <option value="">翼</option>   
+                    <option value="">の</option>
+                </select>
+            辅助表单 <label>
+                为了点击字也可以选择到，我们给字添加label标签
+                <input type="radio" name="gender" checked id = "man"> <label for = "man"> 男</label>
+                <input type="radio" name="gender" id = "women"> <label for = "women"> 女 </label>
+                <input type="radio" name="gender" disabled> 自定义
+美化checkbox
+    准备好checkbox的图片，一个是有打勾的状态，一个是没有的
+   
+    <style>
+        label input{display: none}
+        label input:checked + div {background-position: 0px opx}  checked就是当选中的时候应有的样式，在这里我们只是改变雪地图的位置
+        label div{width:28px ; height: 28px; background: url(./images/xxx.jpg) no-repeat 0 -28px}    后面的0 -28是雪地图的位置
+    </style>
+   
+    <label>    在label的input和内容都可以触发input的checkbox
+        <input type = "checkbox">
+        <div></div>
+    </label>
+
+
+美化  选择 文件的按钮
+     <style>
+        label input{display: none}
+        label div{width:28px ; height: 28px; background: url(./images/xxx.jpg) no-repeat 0 -28px}    后面的0 -28是雪地图的位置
+    </style>
+
+    <label>
+        <input type = "file">
+        <div> </div>
+    </label>
+
+
+input控件
+    <form action="https://www.baidu.com">
+
+        <input type = "email">     email会自动检查邮箱地址是否正确
+        <input type = "url"> 
+        <input type = "number">    只能输入数字，且可以上下调整
+        <input type = "range" min = "0"  max = "10"  value = "8">  滑动条控件
+        <input type = "date">       这个具备年月日
+        <input type = "month">     这个具备 年月
+        <input type = "week">     年和周
+        <input type = "search">  搜索的
+        <input type = "tel">    电话    移动端会调取数字键盘
+        <input type = "color">  会吊起颜色盘 
+        <input type = "time">   时间
+        <input type = "submit">
+    </form>
+
+新的表单属性
+    autocomplete 自动完成
+        <input type = "text" name="username" autocomplete = "on" > 
+            这种情况下提交过一次后，退回来，则会自动提示之前输入的内容，且对应username这个name，off则关掉
+        <input type = "submit">
+
+    autofocus 自动获取焦点 刷新后会自动在输入框上
+    required  不能为空
+    pattern 正则验证  pattern = "\d+"
+
+前后端数据交换
+    method   数据传输方式 get 或者是 post 
+        例子：
+            <form action="./data.php" method = "GET">   Post会比get安全，别人是看不到的
+                <input type="text" name = "username">
+                <input type = "submit">
+            </form>
+            php代码：
+                <?php
+                    $username = $_GET['username'];
+
+                    echo $username;
+                
+                ?>
+    enctype= "application/x-www-urlencoded" 这个是设置传输类型，默认为字符串类型
+                要提交文件的时候 multipart/form-data

@@ -1,0 +1,53 @@
+    表格标签
+        <table border=“1” cellspacing = "30" cellpadding = "30"> <!-- 表格头 --> 
+        <caption>天气预报</caption> <!-- 表格标题 -->
+            <thead> <!-- 语义化标签 这代表的是表格头部的一行，没什么实际效果，只是利于开发 -->
+                <tr align = "right"><!-- 代表行 -->
+                    <th colspan = "2" >日期</th> <!-- 代表行里面的第一列的元素 -->
+                    <th >天气情况</th>
+                    <th>出行情况</th>
+                </tr>
+            </thead>
+            <tbody> <!-- 语义化标签 这代表的是表格的身体 -->
+                <tr>
+                    <th>2018年1月1日</th>
+                    <th>星期一</th>
+                    <th>晴天</th>
+                    <th>爱干啥干啥</th>
+                </tr>
+                <tr>
+                    <th>2019年1月1日</th>
+                    <th>星期天</th>
+                    <th>阴天</th>
+                    <th>家里呆着</th>
+                </tr>
+            </tbody>
+            <tfoot> <!-- 语义化标签 这代表的是表格的最后一行-->
+
+            </tfoot>
+        </table>
+
+        td和th，th是表格头，是用粗体显示的
+
+    表格属性
+            border 表示表格边框, border=“1”
+            cellpadding表示个内的空间，上下左右间距 cellpadding = "30"
+            cellspacing: 单元格之间的距离 cellspacing = "30"
+            rowspan : 合并行 
+            colspan ：合并列 colspan = "2" 某一行的某两列合并成一个，对应下面的两列
+            align：左右对齐方式 值： left center right
+            valign:上下对其方式 值： top middle bottom
+
+表格的css样式：
+    给table标签添加
+        empty-cells : hide 这个就可以把没有元素的表格cell给隐藏掉
+        border-collapse : collapse 添加单线样式
+    如果需要cell中有个斜线，斜线上下有内容
+        在对应的cell中，添加一个div盒子，给这个盒子添加类
+            .line{border-top : 50px solid transparent; border-left:150px solid blue; position:relative}
+            然后把文字标签定位过去
+            .line span{position: absolute; left:30px; top: 20px;}
+    
+    列分组批量操作
+        <colgroup>
+            <col span="2" style = "background:red"> 把现有的表格的前两列的背景变成红色

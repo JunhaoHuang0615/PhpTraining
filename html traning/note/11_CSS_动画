@@ -1,0 +1,127 @@
+1. transition 过渡效果 即属性发生变化时的过渡
+    transition-property            规定设置效果的CSS属性名称 width, all , height, background-color,
+    transition-duration            过渡效果的持续时间 1s,1ms
+    transition-delay               规定过渡效果何时开始 2s,延迟执行， 数值为负数，则提前开始
+    transition-timing-function     规定速度效果的速度曲线 linear线性, ease减缓, ease-in淡入,ease-out淡出，ease-in-out淡入淡出
+                                                        cubic-bezier贝塞尔曲线
+                                                        例子cubic-bezier(.49,-0.75,1.2,4.8)
+
+        例子：
+            <style>
+                div{width: 100px; height: 100px; background: red; transition-property: width; transition-duration: 1s;}
+                 仅针对width属性有过渡效果，持续1秒，其他属性直接变化。 可以写all，全部属性都使用过渡
+                div:hover{width: 200px; height: 200px; background: blue;}
+            </style>
+            <body>
+                <div></div>
+            </body>
+    复合写法 时间，第一个是duration，第二个是延迟
+
+2. tranform 变形效果
+    translate 位移 
+            （例子 transform: translate(400px,0) 向右移动400个像素 另外还有单独的: translateX,translateY,translateZ(3d)
+    scale 缩放      
+            以当前元素的中心点缩放 scale(2) 宽高同时变为2倍，scale(0.5,2) 宽变为一半，高变为2倍
+    rotate 旋转
+            transform: rotate(45deg) 顺时针45度  rotateZ(-45deg) 绕Z轴逆时针旋转45度 ，rotateX 和 rotateY就是3d的了
+    skew 斜切
+            skewX(30deg) x轴向做倾斜30度 skewY(-30) Y轴向右倾斜30度 skew(30,-30)
+    eg:
+            .box1{width: 500px; height: 500px; border: 1px solid black;}
+            .box2{width: 100px; height: 100px; background: red; transition: 1s;}
+            .box1:hover .box2{background: blue; transform: translate(400px,0);}
+                    <div class="box1">
+                        <div class="box2"></div>
+                    </div>
+    
+    注意事项： 1：不会影响其他元素
+              2：只能给块元素
+              3. 复合写法，自行顺序：先执行后面的操作，再执行前面的操作
+                    translate会受到rotate,skew和scale的影响
+             4：transform-origin(left,left)左上角会旋转中心 (center,center)中心点
+
+3.animation 动画
+    animation-name: 设置动画的名字
+        用于映射keyframe的名字
+    animation-duration: 动画持续时间
+    animation-delay 动画延迟时间
+    animation-iteration-count: 动画重复次数 1 默认值，infinite 无限循环
+    animation-timing-function: 动画运动形式
+        例子：
+                <style>
+                    .box1{width: 300px; height: 300px; border: 1px black solid; margin: 30px auto;}
+                    .box2{width: 100px; height: 100px; background: red; 
+                        animation-name: movementAni;
+                        animation-duration: 4s;
+                        }
+                    
+                    @keyframes movementAni {
+                        from{
+                            transform: translate(0,0);
+                        }
+                        to{
+                            transform: translate(200px,200px);
+                        }
+                    }
+                    
+                </style>
+                
+                <body>
+                    <div class="box1">
+                        <div class="box2"></div>
+                    </div>
+    注意： 默认情况下动画运动完以后会回到初始位置
+        添加关键帧的写法：
+                @keyframes movementAni {
+        
+                0%{
+                    transform: translate(0,0);
+                }
+                10%{
+                    transform: translate(0,100px);
+                }
+                20%{
+                    transform: translate(100px,100px);
+                }
+                100%{
+                    transform: translate(200px,200px);
+                }
+            }
+    
+    animation-fill-mode 属性
+        none: 默认值 在运动之后回到初始值，在延迟的情况下，让0%最后生效
+        backwards: 在延迟时，让0%在延迟前生效
+        forwards: 在运动结束之后， 停到结束位置
+        both: forwards 和 backwards 同时生效
+    
+    animation-direction 动画是否反向
+        alternate: 0~100% 执行完以后，又会从100%执行到0
+        reverse: 从100%~0
+        naomal：默认 从0~100%
+
+animate.css 动画库
+    官网地址: https://daneden.github.io/animate.css/
+    使用方法：
+        link这个css，然后在要添加效果的标签中加入
+            class="animated tada infinite"    
+            animated是基类，必须添加  tada是对应的动画名称，自行选择 infinite 是否无限循环
+
+4. transform 3d 属性
+    rotateX()正值向上翻转
+    rotateY()正值向右翻转
+    translateZ() 正值向前，负值向后
+    scaleZ() 立体元素的厚度
+
+    与3d相关的重要属性
+        perspective: 200px  这个属性就相当于架设了一个照相机，200px就是照相机距离我们屏幕的位置，景深
+
+        3D空间，给一个三维的物体增加厚度
+            transform-style: preserve-3d;
+        
+        transform-origin: center center -50px; z轴只能写数值的 3D object的中心点
+
+        perspective-origin: 相机的基点  left, right , top right, bottom left...
+
+        背面隐藏: backface-visibility:hidden  或者 visibile 可见（默认）
+            
+

@@ -1,0 +1,55 @@
+html 语义化标签： 其实就是div但是给了语义   
+    header 页眉
+    footer 页脚
+    main 主体
+    hgroup 标题组合  一般可以含在header中
+    nav 导航    如果每一页都有，可以包含在header中
+
+    article: 独立区域
+    section: 独立区域下的分区
+    aside:含有多个区域的区域
+    figure 和 figcaption：描述图像或者视频，网页中一个视频+一个标题的结构可以用这个
+        <section>
+            <ul>
+                <li>
+                    <figure>
+                        <img  src = "">
+                        <figcaption>
+                            文字部分
+                            <br> 第二行 </br>
+                        </figcaption>
+                    </figure>
+                </li>
+
+            </ul>
+        </section>
+
+智能选项搜索标签datalist，结合input标签使用，当输入某个关键字时，与这个关键字相关的东西会显示出来
+     <input type="text" list="456">
+    <datalist id="456">
+        <option value="a"></option>
+        <option value="ab"></option>
+        <option value="ac"></option>
+        <option value="ah"></option>
+        <option value="arewt"></option>
+        <option value="rewt"></option>
+    </datalist>
+    这样在input中输入a，那么下面含有a的全都会显示到选项中
+
+折叠操作的控件
+    <details open>
+        <summary> 大标题，下面的内容可以折叠隐藏</summary>
+        <p>123</p>
+    </details>
+
+显示进度条的空间
+     <progress min="0" max="10" value="8"></progress> 
+
+    <meter min="0" max="100" value="30" low="10" high="60"></meter>
+        这个有最大值和最小值，在low 和 high 范围内会是绿色，大于high是黄色，小于low是红色
+
+time标签，让文字有这个属性，更容易被搜索到
+    今天是<time title = "6-1">六一儿童节</time>
+
+mark  让某个文字涂上背景颜色
+

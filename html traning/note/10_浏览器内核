@@ -1,0 +1,9 @@
+Chrome: webkit  -webkit-
+IE:     Trident  -ms-
+Firefox: Gecko   -moz-
+Opera:  Presto   -o-
+Safari: webkit  -webkit-
+Opera Chrome : Blink
+
+    根据不同的浏览器，做css动画的时候会需要前缀，不过现在几乎都不用加了，最好也不要加
+    

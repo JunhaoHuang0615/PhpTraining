@@ -34,6 +34,6 @@ float的块，是不会将父级撑开的，它的高度不会影响父级高度
         父级加入diplay:inline-block
         父级中加入空标签，且这个空标签含有clear:both 样式
         推荐： 使用after伪类，注意，clear只会操作块标签，对于内联标签无效
-            写一个类.clear{content:"";clear:both;display=block}
+            写一个类.clear:after{content:"";clear:both;display=block}
             然后再父级中加入那个类
     

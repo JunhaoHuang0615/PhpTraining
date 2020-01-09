@@ -1,0 +1,117 @@
+1. strong,b的区别
+    文本加粗
+    strong: 有语义化
+    b：无语义化，这个b代表啥不清楚
+
+
+2. i 与 em区别
+    文本斜体
+    em: 有语义化 （一般情况下使用这个)
+    i:无语义化，即，这个i不知道啥意思,可以在使用标签区分的时候可以使用
+
+3. 引用标签
+    blockquote: 引用大段落
+    q: 引用小段的短语解释
+    abbr: 缩写或首字母缩略词
+    address: 引用文档地址信息
+    cite: 引用著作标题
+
+4. iframe 页面包含页面的框架
+    一个页面嵌套其他的页面窗口
+        frameorder
+        width
+        height
+        scrolling
+        src
+        srcdoc 规定在iframe中显示的内容
+    用于数据传输，控件/数据共享：涉及到js
+        通信操作等
+        twitter共享
+
+5.  br 与 wbr
+    换行与软换行, 当容器一行的大小不能满足大小时，会自动换行
+    <p>
+        <br>需要换行时，截断单词换行</br>
+        <wbr>换行时，整个单词换行</wbr>
+    </P>
+
+6.pre标签和code标签 组合使用,针对网页标签中显示代码的部分
+        网页的黑色部分，一些教学网站中常用的，分享代码的时候
+    <pre>
+     <code>
+        这里要借助其他的程序，如markdown来生成代码显示在页面中的文本
+
+     </code>
+
+    </pre>
+
+7. map与area标签
+        定义一个客户端图像映射： 图像映射:(image-map)指的是带有可点击区域的一个图像。 area元素永远嵌套在map元素中。 
+        area元素可以定义图片中的某一块区域
+            area属性：href，shape定义区块形状，coords 热区的坐标
+            见 map.html
+                    shape: rect   长方形，需要指定左上角和右下角的坐标
+                            coords: 203 89 386 173         (x1 y1 x2 y2)
+                    shape: circ   圆形  指定 中心点和半径
+                            coords: 300 130 50       (Xo,Yo,radius)
+                    shape: poly 多边形  （需要指定所有连接成这个多边形形状的点）
+                            coords: 23 32 34 89 23 89 34 22 (x1 y1 x2 y2 x3 y3 ........)
+
+8. embed 或者 object 嵌入flash动画
+
+9. video 和 audio 标签
+    默认这两个控件是不显示的，要通过control来开启
+    为了能够支持多个设备的兼容性骂我，我们还可以使用source
+    <audio src="./audios/xxx.mp3" controls> </audio>
+     其他属性:loop  是否循环     autoplay 自动播放
+
+    <video src="./videos/xxx.mp4 controls autoplay loop> </video>
+
+    使用source来解决兼容问题
+        <video>
+            <source src = "./videos/xxx.ogv">
+            <source src = "./videos/xxx.mp4">  如果ogv浏览器无法兼容，就会找这个mp4的视频
+            </source>
+        </video>
+    在video中设置 min-width 和 min-height 属性，可以让视频根据父容器大小显示部分可以看到的内容
+
+10.ruby标签，给文字添加拼音
+    <ruby>
+        寒冷<rt>hanleng</rt>
+    </ruby>
+
+11. 改变文字的方向 <bdo>
+    <p>
+        <bdo dir="ltr"> 爱神的剑 </bdo>   ltr是默认的横排   rtl反向
+    </p>
+
+12. 通过css的样式： direction: rte; unicode-code = "ie=edge";
+
+13. 竖行排列，限定承载文字的div宽度，让它每一行只能容纳一个字
+
+14. link标签
+    <link rel="stylesheet" href=""> 添加外部样式
+
+    添加选项卡之前显示的小图标
+        <link rel="icon" type="/image/x-icon" href="xxx/xxx/xxx/favicon.ico">
+        文件必须以favicon.ico命名
+
+    提前解析DNS，让用户访问更快
+    <link rel="dns-prefetch" href="//static.xxxxx">
+
+15 meta标签
+    信息描述-- 网站的秒速
+        <meta name="description" content="大连美团网精选大连美食餐
+        厅，酒店预订,电影票，旅游景点，外卖订餐,大连团购信息，您可查询商家评价店铺 信息。大连生活,下载美团官方APP,吃喝玩乐1折起。/>
+    设置关键字，方便用户搜索
+        <meta name=wkeywords_ content:"大连美食，大连酒店，大连团购”〉 
+    设定双内核浏览器
+        <meta name: tenderer" content:"webkit">
+    针对ie浏览器，以最高模式进行渲染
+        <meta http-equiv="X-UA-Compatible” content=”ie=edge”>
+    刷新之后，经过content秒后自动刷新
+        <meta http-equiv= "refresh" content="3" url=nn> 
+    
+    在content时间内，可以直接从缓存访问网站
+        < meta http-equiv="expires" content="Wed, 20 Jun 2019 22:33:00 GMT" >
+    

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="./CSS/common.css">
+    <style>
+        #main{border: 1px black solid; margin-top: 10px;}
+        #banner{height: 400px; position: relative;}
+        #banner .imglist{position: absolute;left: 21%;}
+        #banner .imglist li img{position: absolute; height: 400px; margin: 0 auto}
+        #banner .imglist li{display: none;}
+        #banner .imglist .active{display: block;}
+        #banner .banner_btn {position: absolute; left:48% ;bottom: 10px;z-index: 3;} /* Button */
+        #banner .banner_btn li{box-sizing: border-box; border-radius: 50%; 
+                                width: 10px; height: 10px;border: red solid 1px;
+                                float: left ; margin-left: 4px;  
+                                cursor: pointer;  
+                            }
+    </style>
+</head>
+<body>
+        <div id="head" class="container-field clear">
+            <div class="head_logo l">
+                <a href="index.html">
+                <img src="./Images/LOGO.png" alt="LOGO">
+                </a>
+            </div>
+            <div class="head_text l" >
+                <a href="">
+                    <img src="./Images/lianjieyiciyuan_text3.png" height="100px" alt="">
+                </a>
+            </div>
+            <div class="head_login">
+                <div class="login_btn"> 登录</div>
+                <div class="login_btn"> 注册</div>
+                <div class="login_head"><img src="./Images/e_text.png" alt=""></div>
+            </div>
+        </div>
+        <div id="banner" class=" container-field">
+            <ul class="imglist">
+                <li class ="active"> <a href="#"> <img src="./Images/banner01.png" alt=""> </a> </li>
+                <li> <a href="#"> <img src="./Images/banner01.png" alt=""> </a></li>
+                <li> <a href="#"> <img src="./Images/banner01.png" alt=""> </a></li>
+                <li> <a href="#"> <img src="./Images/banner01.png" alt=""> </a></li>
+            </ul>
+            <div>
+
+            </div>  
+            <ul class="banner_btn">
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+
+            </ul>
+        </div>
+     <div id="main" class="container">
+        <div>1231243213</div>
+     </div>
+</body>
+</html>

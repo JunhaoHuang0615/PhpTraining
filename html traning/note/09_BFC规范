@@ -1,0 +1,18 @@
+触发BFC： 可以形成一个独立的容器，不受外界影响
+    float 除了none
+    position: absolute fixed
+    display: inline-block、 table-cells、 flex
+    overflow 除了visible以外的值
+
+    解决margin的叠加问题 上下margin会取最大值： 给他们添加父级容器，让父级容器变成BFC盒子
+    解决margin的传递问题： 子集盒子的margin-top会把没有margin的父级一起带动
+                        解决方案： 给父级添加overflow:hidden, scroll, auto
+                                 position:absolute
+    解决浮动： 没有float的父级嵌套float的子集时候，父级不会被冲=撑起来
+             解决方案：
+                  父级：overflow:hidden
+                  float:left
+                  display:inline-block
+    假如div1和div2是兄弟集，div1在div2上面float了，这样会导致div2被div1压在下面
+    如果把div2加上overflow:hidden，就可以使得div2与div1并排
+
