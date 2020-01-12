@@ -1,4 +1,1 @@
-.box1{
-    width:200px
-}
-/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uL3NyYy90ZXN0LmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtJQUNJO0FBQ0oiLCJmaWxlIjoidGVzdC5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyIuYm94MXtcbiAgICB3aWR0aDoyMDBweFxufSJdfQ== */
+.box1{width:200px;height:10px;-webkit-transform:translate(100px,100px);-moz-transform:translate(100px,100px);-ms-transform:translate(100px,100px);-o-transform:translate(100px,100px);transform:translate(100px,100px)}

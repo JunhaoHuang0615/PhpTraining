@@ -1,3 +1,14 @@
 .box1{
-    width:200px
+    width:200px;
+    height:10px;
+    transform: translate(100px,100px);
+}
+
+/* CSS中创建变量的方法 */
+:root{
+    --col: red;
+}
+
+.box2{
+    background: var(--col);
 }
