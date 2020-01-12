@@ -24,3 +24,66 @@
     postcss.config.js
         这个是postcss的配置文件，就是node.js的文件，用于配置写css的插件
 
+安装插件：
+    autoprefixer : 用于自动添加html表头
+        命令行输入： cnpm i autoprefixer
+        安装成功后去postcss.config.js文件中开始配置，输入
+        const autoprefixer = require('autoprefixer');
+        module.exports = {
+            plugins : [
+                autoprefixer(
+                    {
+                        browsers : ['> 0%'] //这一条的意思是给所有浏览器添加上前缀，-wevbit-等，我们只要写tansform属性，前缀会自动生成
+                    }
+                ),
+                pcImport,
+                cssnano,
+                cssnext,
+                stylelint({
+                        "rules" : {
+                            "color-no-invalid-hex" : true       不能有无效的颜色 //可以添加很多颜色
+                        }
+                    }
+
+                )
+            ]
+        };
+    postcss-import: 对多个css文件进行合并的插件
+        cnpm i postcss-import
+
+        const pcImport = require('postcss-import');
+         在上面加入 pcImport,
+
+    cssnano 对css的压缩处理
+        cnpm i cssnano
+
+        const cssnano = require('cssnano');
+        在上面加入 cssnano
+    cssnext 对css降级处理，提高兼容性
+        cnpm i postcss-cssnext
+
+        const cssnext = require('postcss-cssnext');
+        在上面加入 cssnext
+
+    stylelint: 对代码进行规范
+        cnpm i stylelint
+
+        const stylelint = require('stylelint');
+        在上面写入
+        stylelint({
+                        "rules" : {
+                            "color-no-invalid-hex" : true       不能有无效的颜色 //可以添加很多颜色
+                        }
+                    }
+
+    postcss-sprites  精灵图，自动生成雪地图，并生成位置
+        cnpm i postcss-sprites
+
+        const sprites = require('postcss-sprites');
+
+        在上面写入  
+            sprites({
+
+                spritePath:'./dist/sprites'    配置生成精灵图的位置
+            })
+

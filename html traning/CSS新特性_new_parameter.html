@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    div{
+        --color:yellow; /* 优先级第二高 */
+    }
+    
+    :root{
+        --color:red; /* 优先级最低 */
+        --number: 10px;
+        --number2: 20;
+        --size : 50px;
+    }
+    #box{
+        --color : blue; /* 优先就最高 */
+        background: var(--color);
+        width: var(--number);
+        height: calc(var(--number2) * 1px);
+        font-size: var(--size,100px);  /* 会首先去找size这个变量，如果没有，则取后面一个参数 */
+    }
+    
+    </style>
+</head>
+<body>
+    <div id="box">aaaaaaa</div>
+</body>
+</html>
