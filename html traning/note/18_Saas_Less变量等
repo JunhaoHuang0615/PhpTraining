@@ -1,0 +1,7 @@
+官方网站：lesscss.org
+    VSCode插件： Easy LESS
+官网：sass-lang.com
+    VSCode插件   Easy Sass
+
+新建文件名称: .less  .scss 或者 .sass
+    写完以后保存，会自动生成css文件

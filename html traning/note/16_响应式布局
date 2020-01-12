@@ -1,0 +1,33 @@
+响应式语法：
+    #box{background:red}
+    @media all and (min-width:500px){    大于等于500时触发的样式
+        #box{background:black}   
+    }
+    即当屏幕的分辨率大于500的时候，会触发的样式
+                小于500，则不满足min-width:500px，则会触发外面的样式
+    
+    @media all and (min-width:500px) and (max-width:700px){}  大于等于500 且 小于等于700 触发的样式
+    @nedia not all and (min-width:500px){} 取反,即小于等于500的时候触发
+
+    优先级
+        @media all and (min-width:300px)
+        @media all and (min-width:500px) 同时满足的时候，会取下面的这个优先级
+
+
+    
+    纵屏，横屏
+        @media all and(orientation : portrait){} 纵屏
+        @media all and(orientation : landscape){} 横屏
+
+
+<link rel="stylesheet" href = "./css/xxx.css media = "all and (min-width:300px) > 
+    那么就是满足min-width:300px的时候会触发的xxx.css这个样式
+
+一般情况下
+    display:block ,width , float这几个属性的调整
+
+有时候灵界点，需要用1499.98px, 和1500px来解决冲突
+    如 media = "all and (max-width:1499.98px)
+        media = "all and (min-width:1500px)
+        
+        

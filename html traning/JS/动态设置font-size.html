@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    // 以iphone6的手机为事例，6的宽度为375px，现在我们心里想的某个div宽度为100，但实际上手机里面不可能是100，所以用
+    // document.documentElement.clientWidth  除以 100， 让一个1rem在手机里面代替100这个值
+    // layout viewport : document.documentElement.clientWidth
+
+    var fontsize = document.documentElement.clientWidth / 3.75 ; /* 3.75看你是针对什么手机设计的了 */
+    /* 这里的document.documentElement.clientWidth得到的是device-width */
+     document.documentElement.style.fontSize = fontsize + 'px' ;
+    
+    </script>
+</body>
+</html>

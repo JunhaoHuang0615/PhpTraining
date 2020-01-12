@@ -114,4 +114,113 @@
     
     在content时间内，可以直接从缓存访问网站
         < meta http-equiv="expires" content="Wed, 20 Jun 2019 22:33:00 GMT" >
+
+16: background image 的属性
+    background-size ： 50px 50px 背景图的大小
+                        cover 等比放大直到填充满容器
+                        contain 等比放大直到填充了高或者宽
+    background-origin :     padding-box  背景图默认是在padding和content位置 
+                            border-box   从border处开始
+                            content-box
     
+    background-clip:  背景图的裁切方式
+                            padding-box  padding之外就看不到了
+
+17：CSS渐变
+    1.线性渐变 -> linear-gradient 是加在背景图身上的
+        background-image: linear-gradient(red,blue) 红色渐变到蓝色
+                          linear-gradient(red,blue，yellow ,green)
+                          linear-gradient(to right, red, blue) 从左向右
+                          linear-gradient(to right bottom, red, blue)
+                          linear-gradient(0deg, red, blue) 0度是在最低端，45度则从左下角45度去渐变
+                          linear-gradient( red 25%, blue 75%) 从0~25%的地方是红色， 75~100是蓝色，中间渐变
+                          linear-gradient( red 50%, blue 50%) 无渐变，就只有两种颜色
+    2.径向渐变： radius-gradient(red,blue) 中心点向四周
+
+18：字体图标  一些图标看上去是图片，实际上是个字体
+    好吃： 改大小只需要改font-size, 改颜色只需要改color
+          图片放大不会失真
+          只需要加载一次
+          简化网页布局（普通图片要考虑很多布局）
+          减少前端工程师工作量，可以使用阿里巴巴矢量图库
+    使用：
+        @font-face 语法
+        为了做兼容，需要以下.woff等文件
+        {
+        font-famile: name
+        src：
+        }
+
+        <div style="font-family:name"} 输入图标对应的字 </div>
+        或者创建一个class，如 shoujitupian:after{content:"对应的字符"}，之后使用的时候只用class来写
+    
+    资源: http://www.iconfont.cn
+        新建项目->选图标，加入购物车->加入项目->下载到本地->解压->最主要的是.svg文件 和 .css文件-> 引入css到html中 -> 要使用的地方使用对应的class，使用方法可以看demo
+        针对彩色的图标
+            .js文件也很重要
+            引入方式要使用symbol的方式，引入js文件
+
+19：文字阴影
+    text-shadow : 10px 10px 向右偏移，向下偏移
+                    默认与文字颜色相同： 可设定
+                    blur：设置模糊 10px
+                    x y blur color
+                    可通过，号隔开添加多阴影
+20.盒子阴影
+    box-shadow : 
+        x y blur range color inset
+        盒子阴影默认为黑色
+        range: 是阴影的范围
+        inset为内阴影
+        应用：鼠标到一个图片上有浮动和阴影效果
+             盒子向上移一点，加上阴影，0 10px 10px gray
+
+21。遮罩 mask  就是利用png图片的透明区域 因为还没有标准化，所以需要加入浏览器前缀 -webkit-mask:url()
+    类似剪切蒙版
+    url（图片地址）
+    repeat  默认为平铺， 可以设为no-repeat
+    x
+    y   x,y为位置
+    w   
+    h   放大
+    多遮罩逗号隔开添加多个遮罩
+
+    实例： url(./img/sad.png) no-reapat center center / 100px 100px;
+
+22. 倒影   记得加前缀
+     box-reflect
+        above
+        below
+        left
+        right  上下左右选一个方向
+        距离    间隔
+        遮罩|渐变  加url则为遮罩    
+                  渐变则只支持透明度渐变： linear-gradient(rgba(255,255,255,0),rgba(255,255,255,1))就最后一个值有       
+                                       如果是below，则为从下渐变到上，可以增加百分比 
+                                       linear-gradient(rgba(255,255,255,0) 50%,rgba(255,255,255,1))
+
+23 模糊与四则计算
+    blur 模糊
+        如在图片里加入 filter:blur(10px) 图片就会模糊10个像素
+    四则运算： 实现百分比与实数运算
+        width:calc(100%-100px)
+
+24: 分栏布局   报纸的分栏，给一个文字添加文字的时候可以使用 
+    column-count  分栏的个数，分成多少列 4
+    column-width    每个分栏的宽度（一般不与count一起设置）100px
+    column-gap      分栏的间距  10px
+    column-rule     分栏边线    1px red dashed
+    column-span     合并分栏，即某个标签直接占一行
+
+25：CSS hack 解决浏览器兼容性问题，可以针对某个浏览器单独识别
+
+26 button标签
+    块标签
+
+
+
+
+
+
+
+

@@ -1,0 +1,142 @@
+//单行注释 不会被编译
+/*
+    多行注释会被编译
+*/
+
+//定义变量
+@number : 123px ;
+//差值写法
+@key : margin;
+@i : 3;
+
+.box1{
+    width: @number;
+    height: @number;
+    @{key} : auto;
+}
+
+.box@{i}{
+    width: @number;
+    @number : 4; //内部域，就近原则！
+    height: @number;
+}
+
+//选择器嵌套
+    // ul li{}
+    // ul li div{}
+    // ul li p{}
+ul{
+    //伪类书写方法
+    &:hover{
+    background: red;
+    }
+    list-style: none;
+    li{
+        float: left;
+        div{
+            margin: 10px;
+        }
+        p{
+            margin: 4px;
+        }
+    }
+}
+
+//运算
+    @num : 100px;
+    .box4{
+        width: @num * 3 ;
+        height: @num + 10em;
+        margin: 10em + @num;
+        font: 20px / 1.5;
+        padding: 20px / 1.5;
+        //~代表转义
+        padding: ~"20px / 1.5" ;
+        color: #010203 * 2;
+    }
+
+//函数API方法
+    .box5{
+        width: round(3.5); //四舍五入
+        height: percentage(0.2);
+        margin: sqrt(4); //开根号，sass没有
+    }
+
+//混入
+.show{
+    display: block;
+    height: 100px;
+}
+.hide(@colr){ //仅用于混入，并且可以传递参数
+    margin:20px;
+    color: @colr;
+}
+.box7{
+    width: @num;
+    .show;
+    .hide(red);
+}
+
+//less独有命名空间
+#name123(){
+    .show{
+        display: inline;
+    }
+}
+.box8{
+    width: @num;
+    .show;
+    #name123.show;
+}
+//继承写法
+.line{
+    display: inline;
+}
+
+.box9{
+    &:extend(.line); //继承的会在css中写在一起
+    height: 800px;
+}
+
+//合并操作
+.box10{
+    background: red url(../img/09f06e9a78db49fd9dcd7f37a94ffa72.jpg);
+}
+
+//响应式
+.box11{
+    width: 300px;
+    @media all and (min-width : 768px){
+        width: 600px;
+    }
+}
+
+//条件，循环，导入
+
+
+.get(@cn) when (@cn > 4)
+{
+    width: 100px + @cn
+}
+
+.get(@cn) when (@cn <= 4)
+{
+    width: 5px + @cn
+}
+
+.box1{
+    .get(4)
+}
+
+@count : 0;
+.get2(@cn) when (@cn<3){
+    .get2(@cn+1);
+    .box-@{cn}{
+        width: 100px +  @cn;
+    }
+}
+
+.get2(@count);
+
+//导入其他的less文件
+/* @import './style.less' */

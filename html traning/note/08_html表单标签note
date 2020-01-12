@@ -36,6 +36,8 @@
                 <input type="radio" name="gender" checked id = "man"> <label for = "man"> 男</label>
                 <input type="radio" name="gender" id = "women"> <label for = "women"> 女 </label>
                 <input type="radio" name="gender" disabled> 自定义
+
+    input标签的outline属性变成none，可以去掉被选择的时候的边框效果
 美化checkbox
     准备好checkbox的图片，一个是有打勾的状态，一个是没有的
    
@@ -49,6 +51,8 @@
         <input type = "checkbox">
         <div></div>
     </label>
+
+
 
 
 美化  选择 文件的按钮

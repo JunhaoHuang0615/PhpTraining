@@ -1,0 +1,10 @@
+Less官网：
+    http://lesscss.org/
+    插件: easy less
+    后缀名: .less
+Sass官网:
+    https://sass-lang.com
+    插件: easy sass
+    后缀: .scss     .sass
+
+文件保存时，会自动生成css文件，使用时则把css文件导入html中

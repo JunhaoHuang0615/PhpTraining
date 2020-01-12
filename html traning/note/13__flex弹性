@@ -1,0 +1,71 @@
+Flex弹性盒布局
+    作用在flex容器（父容器）上的属性
+        flex-direction
+            用来控制子项整体布局方向，是从左往右？还是从右往左？上到下？还是下到上？
+            默认值: row 让子元素从左向右排列
+            row-reverse  右向左
+            column 让子元素从上到下
+            column-reverse  下到上
+
+        flex-wrap
+            子项整体是单行显示还是换行显示
+            默认情况下：nowrap 会把子元素的宽度自己调节，使所有子元素排在一行，直到无法压缩后溢出
+                    wrap 一行不足，则会换行
+                    wrap-reverse  第一行在最下面了
+
+        flex-flow
+            前面两个属性的符合写法
+                flex-flow: column wrap  一列压缩排列
+
+        justify-content
+            主轴方向上的对齐方式： 主轴是根据flex-direction来决定的
+            flex-start 默认值，表示为起始位置对齐
+            flex-end    结束位置对齐
+            center      居中对齐
+            space-between 两端对齐  第一个靠在最左边，最后一个靠在最右边，中间区域被子元素平均分配
+            space-around  每一个子元素的左边边距=右边边距
+            space-evenly  所有子元素的空白位置都相同
+
+        align-items
+            子项相对于flex容器侧轴的对齐方式
+                stretch 默认值 flex子项拉伸  高度不确定的情况下会直接撑满父容器高度
+                flex-start 以子容器的每一个顶端来对齐，且会跑到顶部
+                flex-end    容器的底部对齐  会跑到中部
+                center      垂直居中对齐    会跑到中部
+
+        align-content   子元素有多行或者多列的时候，多行之间的对齐方式
+            stretch     默认值，每一行flex子元素都等比拉伸，如果有两行，每一行拉伸高度就是50%
+            flex-start  表示为起始行对齐
+            flex-end    以结束行对齐
+            center      居中对齐
+            space-between 两端对齐  第一个行在最上边，最后一行靠在最下边，中间区域被其它行平均分配
+            space-around  每一个子行的上边边距=下边边距
+            space-evenly  所有子行的空白位置都相同
+
+    作用在子项上
+        order
+            默认值为0, 值越小的子项会排在越前面
+
+        flex-grow   
+            当子项有空白区域时，对应的子项占空白区域的权重
+            默认值为0， 然后等比分配空白空间，此时优先级会低于width
+
+        flex-shrink
+            当子元素的一行的空间不足的时候，对应的子元素去收缩
+            0 为不收缩，这个子元素不会受到收缩的影响
+            1 为正常收缩，与其他相同
+            大于1， 则比其他的元素收缩的权重要大
+        flex-basis
+            在分配剩余空间之前元素的默认大小 可以为auto
+            这个值实际与width效果差不多，但优先级比width高
+        flex
+            grow shrink basis的复合写法 
+            注意，此时的flex的优先级是高于width的
+        align-self 某个子元素自己的对齐方式，其他元素按照父容器的来。如果某个子元素有自己的对齐方式，在其他元素按照父级排列时，把这个子元素视为是按照父级方式排列的
+            stretch     
+            flex-start  
+            flex-end    
+            center      
+            space-between 
+            space-around  
+            space-evenly

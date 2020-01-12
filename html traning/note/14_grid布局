@@ -1,0 +1,105 @@
+作用在grid父容器上的属性
+首先要display:grid 
+    grid-template-columns
+    grid-template-rows
+        前两个是网格的划分
+            单位：百分比，数值，fr(按比例（权重）平均分配)
+
+        例子1：假如父容器宽度为500px，高度为500px
+            grid-template-rows: 100px auto 25%   
+                这就代表分了三行，第一行高度为100px，第二行高度自适应，第三行高度站总高度的25%
+            grid-template-columns：100px 200px 100px 100px 
+                代表分了4列，每一列的宽度分别为100，200，100，100
+
+        例子2：假如父容器宽度为300px，高度为300px
+            grid-template-rows: 1fr 1fr 2fr
+                代表每一行高度的权重，第一行占1/4,第二行1/4,最三一行1/2
+        
+        加入有10行10列，简写方法
+            grid-template-rows: repeat(10,1fr) 
+
+    grid-template-areas 
+        这个属性是给网格定义模板
+
+        例子： 假如定义了一个 grid-template-columns: repeat(3,1fr) grid-template-rows: repeat(3,1fr)的网格
+              "a1 a1 a3"
+              "a2 a2 a3"
+              "a2 a2 a3"
+              这个值定义成这样以后，还没有真正效果，要让子元素去找到对应的网格的名称
+              且只能形成矩形(其他特殊图形不行)
+
+    grid-template 
+                复合写法
+                例子：grid-template :
+                    "a1 a1 a3" 1fr
+                    "a2 a2 a3" 1fr
+                    "a2 a2 a3" 1fr
+                    /1fr 1fr 1fr;
+
+    grid-column-gap 
+    grid-row-gap 
+        定义网格间距 ： 10px
+
+    grid-gap 复合写法
+        行间距 纵间距
+
+    justify-items 
+        cell的水平方向对齐方式
+            默认stretch 水平方向铺满
+               start 靠左
+               center 居中
+               end 靠右
+
+    align-items
+        cell的垂直对齐方式
+            默认stretch 垂直方向铺满
+               start 靠上
+               center 居中
+               end 靠下
+
+    place-item：
+        复合写法: align-items justify-items
+
+    justify-content
+    align-content 
+    place-content
+        当网格有空余空间的时候，网格可以分配
+        stretch     
+        tart  
+        end    
+        center      
+        space-between 
+        space-around  
+        space-evenly
+        复合写法先align后justify
+
+作用在子集上的
+    grid-column-start
+    grid-column-end
+    grid-row-start 
+    grid-row-end 
+        用于决定某一个元素的位置
+            假如一个3*3的网格
+              1  2  3  4
+               __ __ __  1
+              |__|__|__| 2
+              |__|__|__| 3
+              |__|__|__| 4
+            那么某一个子元素的 grid-column-start:2 ;grid-column-end:3; grid-row-start:2; grid-row-end:3; 
+                            就会在中间
+                            grid-column-start:2 ;grid-column-end:3; grid-row-start:2; grid-row-end:4; 
+                            这个元素就会占2格
+            在 grid-row-end 或者 grid-column-end 属性中使用 span 2 这就意味着从start位置向后延续2格，而不是结束位置了
+    grid-column 
+    grid-row 
+            复合写法
+            grid-column: 2/3   2/span 2    (start/end )
+    grid-area
+        父级定义了grid-template-areas后，作为子集就要去映射父级对应的网格名称，这样子相同名称的格子就会连到一块儿
+        grid-area:a1
+        grid-area:  3/2/4/4             row start / column start / row end / column end 
+
+    justify-self 
+    align-self 
+    place-self
+        针对某一个网格

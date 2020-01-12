@@ -1,0 +1,125 @@
+//单行注释
+/*
+    多行注释会被编译
+*/
+
+$number : 123px ;
+$key : margin;
+$i :4;
+
+.box1{
+    width: $number;
+    height: $number;
+    #{$key} : auto;
+}
+
+.box#{$i}{
+    width: $number;
+    $number : 4; //内部域，逐行原则
+    height: $number;
+}
+
+ul{ 
+    &:hover{
+        background: red;
+    }
+    list-style: none;
+    li{
+        float: left;
+        div{
+            margin: 10px;
+            //sass独有的属性嵌套
+            font :{
+                size: 16px;
+                weight: bold;
+                family: 宋体;
+            }
+        }
+        p{
+            margin: 4px;
+        }
+    }
+}
+
+$num : 100px;
+.box4{
+    width: $num * 3 ;
+    //单位不同是不可以运算的
+   // height: $num + 10em; 不行
+   // margin: 10em + $num; 不行
+    font: 20px / 1.5;
+    padding: 20px / 1.5; //不需要转义的
+    padding: (20px/1.5); //除法要用括号
+    
+    color: #010203 * 2;
+}
+//函数方法
+
+
+.box5{
+    width: round(3.5); //四舍五入
+    height: percentage(0.2);
+    margin: random(); //随机生成0~1之间的数，less没有
+    font-size: sum(3px,5px); //这个读不到后面定义的函数
+}
+
+//自定义函数
+@function sum($n,$m){
+    @return $n + $m;
+}
+.box6{
+    font-size: sum(3px,5px);
+}
+
+//混入
+
+@mixin show{ //仅用于混入，不会被编译
+    display: block;
+}
+@mixin par($n) {
+    width: $n;
+}
+.box7{
+    @include show;
+    @include par(200px);
+}
+
+//继承
+.line{   //把.换成%，则不会生成这个选择器了
+    display: inline;
+}
+
+.box9{
+    @extend.line; //继承的会在css中写在一起，如果是%，记得换掉
+    height: 800px;
+}
+
+//响应式
+.box11{
+    width: 300px;
+    @media all and (min-width : 768px){
+        width: 600px;
+    }
+}
+
+//条件，循环，导入
+
+$count : 5;
+
+.box11{
+    @if($count >4){
+        width: $count * 100;
+    }
+    @else{
+        width: $count * 30
+    }
+}
+
+@for $i from 0 through 3{  //包含三
+    .box-#{$i}{
+        width: 100px + $i;
+    }
+}
+
+//导入其他的sass文件
+// @import './style.scss'

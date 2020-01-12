@@ -1,0 +1,89 @@
+/*
+    多行注释会被编译
+*/
+.box1 {
+  width: 123px;
+  height: 123px;
+  margin: auto;
+}
+.box3 {
+  width: 4;
+  height: 4;
+}
+ul {
+  list-style: none;
+}
+ul:hover {
+  background: red;
+}
+ul li {
+  float: left;
+}
+ul li div {
+  margin: 10px;
+}
+ul li p {
+  margin: 4px;
+}
+.box4 {
+  width: 300px;
+  height: 110px;
+  margin: 110em;
+  font: 20px / 1.5;
+  padding: 13.33333333px;
+  padding: 20px / 1.5;
+  color: #020406;
+}
+.box5 {
+  width: 4;
+  height: 20%;
+  margin: 2;
+}
+.show {
+  display: block;
+  height: 100px;
+}
+.box7 {
+  width: 100px;
+  display: block;
+  height: 100px;
+  margin: 20px;
+  color: red;
+}
+.box8 {
+  width: 100px;
+  display: block;
+  height: 100px;
+  display: inline;
+}
+.line,
+.box9 {
+  display: inline;
+}
+.box9 {
+  height: 800px;
+}
+.box10 {
+  background: red url(../img/09f06e9a78db49fd9dcd7f37a94ffa72.jpg);
+}
+.box11 {
+  width: 300px;
+}
+@media all and (min-width: 768px) {
+  .box11 {
+    width: 600px;
+  }
+}
+.box1 {
+  width: 9px;
+}
+.box-2 {
+  width: 102px;
+}
+.box-1 {
+  width: 101px;
+}
+.box-0 {
+  width: 100px;
+}
+/* @import './style.less' */

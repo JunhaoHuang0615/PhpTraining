@@ -1,0 +1,65 @@
+www.getbootstrap.com
+    下载主要看dict里的bootstrap.css文件
+        就是一个已经写好了很多类，我们去使用就可以了
+
+关于栅格化表格
+    注意，这里的每一行的row的权重是12
+    <div class = "row">   这就代表了一行，这一行里面有三列
+        <div class = "col-sm"> 123456  </div>    col-sm代表上面这个row中的某一列，但是这一行的列
+        <div class = "col-sm"> 123456  </div>       在小于576分辨率的时候，会变成行去排列（自动换行了)
+        <div class = "col-sm"> 123456  </div>
+    </div>
+
+    col 就不会换行，永远在一行  col-sm 是当container小于576的时候会自动换行   md是720  lg是960   xl是1140
+
+    针对一个row，想让里面的元素排成两行
+        例子： 现在一个row里面有4个div， 那么要插入一个w-100的div代表换行，其他都是col。 w-100的100代表的是宽度100%
+        col  col  w-100 col col 
+    
+    要改变某一列的权重， col-1 代表占一份，其他是默认平均分剩下的空间
+        col-auto 根据内容决定宽度
+    
+    还要满足自动响应
+        col-sm-1
+
+    组合方式
+    在一个row中
+        第1个div: col-md-6  col-lg-4 col-xl-3      在md模式下，一个列权重是6，那么12分的情况下每一行可以2个
+        第2个div: col-md-6  col-lg-4 col-xl-3           那么第一个和第二个div在md模式下会在一行
+        第3个div: col-md-6  col-lg-4 col-xl-3
+        第4个div: col-md-6  col-lg-4 col-xl-3
+        第5个div: col-md-6  col-lg-4 col-xl-3
+        第6个div: col-md-6  col-lg-4 col-xl-3
+        第7个div: col-md-6  col-lg-4 col-xl-3
+        第8个div: col-md-6  col-lg-4 col-xl-3
+        第9个div: col-md-6  col-lg-4 col-xl-3
+        第10个div: col-md-6  col-lg-4 col-xl-3
+        第11个div: col-md-6  col-lg-4 col-xl-3
+
+margin的class：
+    mr-auto : margin-right : auto
+    mt-5 : margin-top: 5rem
+    mt-md-5 : margin-top 在md这个响应的时候为 5rem
+    mx-5:  x轴， 即margin-left: 5rem ; margin-right: 5rem
+    my-5:  x轴， 即margin-top: 5rem ; margin-bottom: 5rem
+    mt-n5: margin-top: -5rem
+
+padding:
+ py-5 : padding-top : 5rem; padding-bottom : 5rem
+
+一些组件
+    alert的组件
+     <div class="alert alert-danger"> text </div>
+     其他： info    primary
+    bg组件
+     class= "bg-primary text-light"
+             bg-info text-danger
+             bg-danger text-success
+    按钮组件
+     <button type="button" class="btn btn-primary"> 
+        Notification <span class="badge badge-light>4</span>
+     </button> 
+    
+vscode中快速创建b4组件，安装extention
+    输入b4之后就会有选择bootstrap 4 的组件供选择
+    

@@ -1,0 +1,41 @@
+chrome按F12 左上角有一个模拟移动端的办法
+
+其实大公司的网站，移动端，PC端是分开开发的
+    当我们访问www.taobao.com的时候，会去检测当前设备， 如果是移动端，则会重定向到其他地址
+
+一套代码实现PC和移动，则为响应式的代码
+
+viewport
+    讲解 viewport.png
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    content 的值
+        width=device-width 一般就是设备的宽度
+        height  设置layout viewport的高度特%値，一般不进行设置
+        initial-scale 页面的初始缩放
+        minimum-scale 最小缩放
+        maximum-scale 最大缩放
+        user-scalable  是否允许用户手动缩放  一般为no
+
+移动端布局
+    流式布局：
+        间距适配，元素大小不变
+        一般用flex
+
+rem 和 em
+rem是根元素的font-size值，即html的font-size值
+em是父级元素的font-size值   
+    html{font-size: 30px}
+        div{width: 1rem}   即width = 30px
+    
+    px转换rem... 下载 px to rem插件
+            设置一下多少代表一个rem
+            选中，或者全选网页，按alt+z就可以自动转换
+
+
+vw和vh单位，vw是把屏幕分成了100份，整个屏幕就是100vw
+
+要注意，一定要重置body中的font-size:16px
+    例子: html{font-size:26.666667vw }  这里的26.6666667就是在iphone6下的100px
+         body{font-size:16px}
+
+

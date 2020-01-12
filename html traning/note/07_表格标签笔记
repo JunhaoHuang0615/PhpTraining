@@ -28,7 +28,18 @@
         </table>
 
         td和th，th是表格头，是用粗体显示的
-
+        简单的 HTML 表格由 table 元素以及一个或多个 tr、th 或 td 元素组成。
+        tr 元素定义表格行，th 元素定义表头，td 元素定义表格单元。
+        <table border="1">
+            <tr>
+                <th>Month</th>
+                <th>Savings</th>
+            </tr>
+            <tr>
+                <td>January</td>
+                <td>$100</td>
+            </tr>
+        </table>
     表格属性
             border 表示表格边框, border=“1”
             cellpadding表示个内的空间，上下左右间距 cellpadding = "30"
@@ -41,7 +52,8 @@
 表格的css样式：
     给table标签添加
         empty-cells : hide 这个就可以把没有元素的表格cell给隐藏掉
-        border-collapse : collapse 添加单线样式
+        border-collapse : collapse 添加单线样式, 每一行的底边框
+
     如果需要cell中有个斜线，斜线上下有内容
         在对应的cell中，添加一个div盒子，给这个盒子添加类
             .line{border-top : 50px solid transparent; border-left:150px solid blue; position:relative}
